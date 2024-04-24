@@ -1,10 +1,10 @@
 clc
 clear 
 close all
-addpath(genpath('helperFuncs'));
-addpath('coreShadowingFuncs');
+addpath(genpath('helperFunctions'));
+addpath('howeCoreProcedures');
 Image_dir = 'demoImages';
-listing = cat(1, dir(fullfile(Image_dir, '*.jpg')));
+listing = cat(1, dir(fullfile(Image_dir, '*.bmp')));
 % The final output will be saved in this directory:
 result_dir = fullfile(Image_dir, 'result');
 % Preparations for saving results.
