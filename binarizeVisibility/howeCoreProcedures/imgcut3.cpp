@@ -40,8 +40,10 @@ mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) {
   errCheck(mxGetNumberOfDimensions(prhs[0])==2,"2D arguments only");
   errCheck(mxGetNumberOfDimensions(prhs[1])==2,"2D arguments only");
   errCheck(nrhs == ndim+2,"Number of args must match image dimensionality.");
-  const int *dim1 = mxGetDimensions(prhs[0]);
-  const int *dim2 = mxGetDimensions(prhs[1]);
+//   const int *dim1 = mxGetDimensions(prhs[0]);
+//   const int *dim2 = mxGetDimensions(prhs[1]);
+  const mwSize *dim1 = mxGetDimensions(prhs[0]);
+  const mwSize *dim2 = mxGetDimensions(prhs[1]);
   for (i = 0; i < ndim; i++) {
     errCheck(dim1[i] == dim2[i],"First two arguments must be same size.");
   }
