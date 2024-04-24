@@ -1,3 +1,20 @@
+clc
+clear 
+close all
+addpath(genpath('helperFuncs'));
+addpath('coreShadowingFuncs');
+Image_dir = 'demoImages';
+listing = cat(1, dir(fullfile(Image_dir, '*.jpg')));
+% The final output will be saved in this directory:
+result_dir = fullfile(Image_dir, 'result');
+% Preparations for saving results.
+if ~exist(result_dir, 'dir'), mkdir(result_dir); end
+
+for i_img = 1:length(listing)
+    % Input = imread(fullfile(Image_dir,listing(i_img).name));
+    BinarizeVisibility(fullfile(Image_dir,listing(i_img).name), fullfile(result_dir,listing(i_img).name))
+end
+
 function BinarizeVisibility (origImageFileName, outputImageFileName)
     % For DEBUGGING AND DEMOING
 %     origImageFileName = 'demoImages\dibco09_HW4_in.bmp';
